@@ -1,58 +1,31 @@
+<!DOCTYPE html>
 <html lang="pl">
+<html>
 <head>
     <meta charset="UTF-8">
-    <title>JS Lab</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, serif;
-        }
+    <title>Wirtualny przewodnik po zabytkach Krakowa</title>
 
-        h1 {
-            color: #0B3954;
-        }
-        .green {color: green
+    <link rel="stylesheet" href="style/style.css">
 
-        }
-
-
-    </style>
 </head>
 <body>
-<div id="app">
-    <h1 id="main-header">Moja aplikacja</h1>
-    <p>To będzie gra. A oto co muszę zrobić:</p>
-    <ol>
-        <li class="boring">Nauczyć się HTML</li>
-        <li class="boring">Nauczyć się CSS</li>
-        <li>Nauczyć się JS</li>
-        <li id="super-important">Zaimplementować</li>
-    </ol>
-    <input type="text" id="myTextField">
-    <input type="checkbox" id="myCheckbox">
-    <button type="button" onclick="readValues()">Odczytaj wartości</button>
-</div>
-<script>
-    function removeBoringStuff(){
-        document.querySelectorAll("#app .boring").forEach((e) => e.remove())
-    }
-</script>
-<script>
-    function readValues(){
-        const isChecked = document.getElementById('myCheckbox').checked;
-        if (isChecked){
-            const text = document.getElementById('myTextField').value;
-            alert(text);
-        }
-    }
-</script>
-<script>
-    let div = document.createElement('div');
-    div.classList.add('green');
-    div.innerText = 'Zielony tekst (jeśli dodasz CSS)';
-    document.getElementById('app').append(div);
-</script>
-
+    <div id="chatbox">
+        <p id="botStarterMessage" class="botText"></p>
+    </div>
+        <div id="userInput">
+            <input id="textInput" class="input-box" type="text" name="msg"
+                   placeholder="Naciśnij 'ENTER' w celu zadania pytania">
+            <p></p>
+        </div>
+        <div class="chat button">
+            <input type="submit" value="wyślij wiadomość" onclick="sendButton()">
+        </div>
+    <div id="chat-bar-bottom">
+        <p></p>
+    </div>
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="scripts/responses.js"></script>
+<script src="scripts/chat.js"></script>
+
 </html>
